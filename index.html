@@ -3,21 +3,32 @@ layout: base
 title: Home
 ---
 <header>
-    <nav>
-        <li>
-            <a href="about/index.html">About the Team</a>
-        </li>
-    </nav>
     <h1>{{ title }} </h1>
 </header>
+
+<p>This photos collection is about cars.</p>
+
+<!-- <img src="_data/photos.13avfhr.json.media.src.original" alt="/_data/photos.13avfhr.json.media.alt" /> -->
+
+{% assign count = 0 %}
+{% for photo in photos.dvgfira.media %}
+{% assign count = count | plus: 1 %}
+<a href="cars/page-{{ count }}/index.html">
+    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}"/>
+</a>
+{% endfor %}
 
 <footer>
     <hr>
     <p>
         <small>
-            <br><a href="https://www.pexels.com">Photos provided by Pexels</a>
+            <a href="https://www.pexels.com">Photos provided by Pexels</a>
         </small>
-        
     </p>
 </footer>
 
+<!-- {% for photo in livingrooms.media %}
+<a href="/photos/{{ photo.id }}">
+    <img src="{{ photo.src.tiny }}" alt="{{ photo.alt }}" />
+</a>
+{% endfor %} -->
